@@ -1,7 +1,7 @@
 new-missile-command
 
 
-<a href=https://vishnupanyam.github.io/mc/"" target="_blank">new-missile-command</a>
+<a href="https://vishnupanyam.github.io/mc/" target="_blank">new-missile-command</a>
 
 Check the auto firing in pause menu.
 
