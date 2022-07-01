@@ -10,6 +10,7 @@ const CITY = 3;
 const GAME_STOP = 0;
 const GAME_RUNNING = 1;
 const GAME_OVER= 2;
+const GAME_START = 3;
 
 const GAME_LEVEL_INIT = 1;
 
@@ -63,17 +64,8 @@ function init() {
 
     canvas = document.getElementById("game-canvas");
 
-    var canvasRatio = canvas.height / canvas.width;
-    var windowRatio = window.innerHeight / window.innerWidth;
-
-    if (windowRatio < canvasRatio) {
-        height = window.innerHeight;
-        width = height / canvasRatio;
-    } else {
-        width = window.innerWidth;
-        height = width * canvasRatio;
-    }
-
+    width = window.innerWidth;
+    height = window.innerHeight;
     canvas.width  = width;
     canvas.height = height;
 
@@ -102,7 +94,7 @@ function init() {
 	score = { points: 0, missiles: 0 };
 
     initLevel(GAME_LEVEL_INIT);
-    game.status = GAME_RUNNING;
+    game.status = GAME_START;
 
 }
 
@@ -442,10 +434,20 @@ autoBtn.addEventListener('click', () => {
 
 pauseBtn.addEventListener('click', () => {
     game.status = (game.status != GAME_RUNNING?GAME_RUNNING:GAME_STOP);
+
 });
 resumeBtn.addEventListener('click', () => {
 	modalMenu.style.display = 'none';    
     game.status = (game.status != GAME_RUNNING?GAME_RUNNING:GAME_STOP);
+});
+restartBtn.addEventListener('click', () => {
+    init();
+    startScreen.style.display = 'none';
+        game.status = GAME_RUNNING;
+});
+startScreen.addEventListener('click', () => {
+	startScreen.style.display = 'none';    
+    game.status = GAME_RUNNING;
 });
 
 // INPUT

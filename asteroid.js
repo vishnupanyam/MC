@@ -9,10 +9,10 @@ class Asteroid {
         this.speed = speed;
 
         this.originX = pos.x;
-        this.originY = pos.y;
+        this.originY = 0;
 
         this.x = pos.x;
-        this.y = pos.y;
+        this.y = 0;
 
 		this.vx = 0;
 		this.vy = 0;
